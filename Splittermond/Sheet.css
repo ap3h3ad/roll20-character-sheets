@@ -3,28 +3,31 @@
 /* Settings */
 /*light theme*/
 .sheet-theme~* {
+    --color-primary: #0489b1;
+    --color-secondary: #890c6f;
+
     --color-bg: white;
     --color-bg-underlay:#d0d0d0;
-    --color-bg-form-header:#0489b1;
+    --color-bg-form-header: var(--color-primary);
     --color-bg-bookmark:#e8e8e8;
     --color-bg-bookmark--active: white;
     --color-bg-button:#d0d0d0;
     --color-bg-button--hover:#bdeefd;
 
-    --color-bg-button--primary:#0489b1;
+    --color-bg-button--primary:var(--color-primary);
     --color-bg-button--primary--hover:#10b0e0;
 
     --color-font: #252b2e;
-    --color-font-h1:#0489b1;
+    --color-font-h1:var(--color-primary);
     --color-font-button--primary:white;
     --color-font-button--primary--hover:white;
 
     --color-font-form-header:white;
     --color-font-form__field:#252b2e;
     --color-font-form__label:#5a5a5a;
-    --color-font-form__label--focus:#0489b1;
+    --color-font-form__label--focus:var(--color-primary);
 
-    --color-border-arrow--hover:#0489b1;
+    --color-border-arrow--hover:var(--color-primary);
 
     --border-form__field: 2px solid #5a5a5a;
 }
@@ -49,7 +52,7 @@
     --color-font-button--primary:white;
     --color-font-button--primary--hover:white;
 
-    --color-border-arrow--hover:#0489b1;
+    --color-border-arrow--hover:var(--color-primary);
 
     --border-form__field: 2px solid #bbbbbb;
 }
@@ -79,13 +82,26 @@
     overflow: hidden;
 }
 
-.sheet-rolltemplate-splittermond_generic .sheet-roll-message {
-    margin-bottom: 50px;
+.sheet-rolltemplate-splittermond_generic,
+.sheet-rolltemplate-splittermond_patzer,
+.sheet-rolltemplate-splittermond_initiative,
+.sheet-rolltemplate-splittermond_aktiveabwehr,
+.sheet-rolltemplate-splittermond_damage,
+.sheet-rolltemplate-splittermond-initiative_tracker
+ {
+    background: linear-gradient(to top, #0489b1, #890c6f);
+    padding: 3px;
+    border-radius: 0.8rem;
+}
+
+.sheet-rolltemplate-splittermond_generic .sheet-roll-message,
+.sheet-rolltemplate-splittermond_patzer .sheet-roll-message,
+.sheet-rolltemplate-splittermond_initiative .sheet-roll-message,
+.sheet-rolltemplate-splittermond_aktiveabwehr .sheet-roll-message,
+.sheet-rolltemplate-splittermond_damage .sheet-roll-message,
+.sheet-rolltemplate-splittermond-initiative_tracker .sheet-roll-message {
     background-color: white;
     border-radius: 0.5rem;
-    -webkit-box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 45%);
-    -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.45);
-    box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 45%);
 }
 
 .sheet-rolltemplate-splittermond_generic .sheet-roll-message__header--triumph,
@@ -96,37 +112,29 @@
     text-align: center;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
+    background-color: #890c6f;
 }
 
-.sheet-rolltemplate-splittermond_generic .sheet-roll-message__header--triumph {
-    background-color: #3e9200;
-}
-
-.sheet-rolltemplate-splittermond_generic .sheet-roll-message__header--patzer {
-    background-color: #ad0000;
-}
-
-.sheet-rolltemplate-splittermond_generic .sheet-roll-message__title {
+.sheet-rolltemplate-splittermond_generic .sheet-roll-message__title,
+.sheet-rolltemplate-splittermond_initiative .sheet-roll-message__title {
     font-size: 2rem;
     text-align: center;
     padding: 1.5rem 2rem 0;
 }
 
 .sheet-rolltemplate-splittermond_generic .sheet-roll-message__roll--success {
-    color: #3e9200;
+    color: #890c6f;
 }
 
-.sheet-rolltemplate-splittermond_generic .sheet-roll-message__roll--fail {
-    color: #ad0000;
-}
-
-.sheet-rolltemplate-splittermond_generic .sheet-roll-message__subtitle {
+.sheet-rolltemplate-splittermond_generic .sheet-roll-message__subtitle,
+.sheet-rolltemplate-splittermond_initiative .sheet-roll-message__subtitle {
     font-size: 1.2rem;
     text-align: center;
     padding: 0 2rem;
 }
 
-.sheet-rolltemplate-splittermond_generic .sheet-roll-message__dice-group {
+.sheet-rolltemplate-splittermond_generic .sheet-roll-message__dice-group,
+.sheet-rolltemplate-splittermond_initiative .sheet-roll-message__dice-group {
     text-align: center;
     margin: 0.7rem 0 1.5rem;
 }
@@ -145,7 +153,12 @@
     font-size: 2rem;
     text-align: right;
     padding: 0 0.5rem 0 2rem;
-    border-right: 2px solid black;
+}
+
+.sheet-rolltemplate-splittermond_initiative .sheet-roll-message__result-num {
+    font-size: 2rem;
+    text-align: left;
+    padding: 0 2rem 0 0.5rem;
 }
 
 .sheet-rolltemplate-splittermond_generic .sheet-roll-message__difficulty-num,
@@ -155,7 +168,12 @@
     padding: 0 2rem 0 0.5rem
 }
 
-.sheet-rolltemplate-splittermond_generic .sheet-roll-message__result {
+.sheet-rolltemplate-splittermond_generic .sheet-roll-message__difficulty-num {
+    border-left: 2px solid black;
+}
+
+.sheet-rolltemplate-splittermond_generic .sheet-roll-message__result,
+.sheet-rolltemplate-splittermond_initiative .sheet-roll-message__result {
     font-size: 1.4rem;
     text-align: right;
     padding: 0 0.5rem 2rem 2rem;
@@ -183,7 +201,28 @@
 
 .sheet-rolltemplate-splittermond_generic .inlinerollresult,
 .sheet-rolltemplate-splittermond_generic .inlinerollresult.fullcrit,
-.sheet-rolltemplate-splittermond_generic .inlinerollresult.importantroll {
+.sheet-rolltemplate-splittermond_generic .inlinerollresult.fullfail,
+.sheet-rolltemplate-splittermond_generic .inlinerollresult.importantroll,
+.sheet-rolltemplate-splittermond_patzer .inlinerollresult,
+.sheet-rolltemplate-splittermond_patzer .inlinerollresult.fullcrit,
+.sheet-rolltemplate-splittermond_patzer .inlinerollresult.fullfail,
+.sheet-rolltemplate-splittermond_patzer .inlinerollresult.importantroll,
+.sheet-rolltemplate-splittermond_initiative .inlinerollresult,
+.sheet-rolltemplate-splittermond_initiative .inlinerollresult.fullcrit,
+.sheet-rolltemplate-splittermond_initiative .inlinerollresult.fullfail,
+.sheet-rolltemplate-splittermond_initiative .inlinerollresult.importantroll,
+.sheet-rolltemplate-splittermond_aktiveabwehr .inlinerollresult,
+.sheet-rolltemplate-splittermond_aktiveabwehr .inlinerollresult.fullcrit,
+.sheet-rolltemplate-splittermond_aktiveabwehr .inlinerollresult.fullfail,
+.sheet-rolltemplate-splittermond_aktiveabwehr .inlinerollresult.importantroll,
+.sheet-rolltemplate-splittermond_damage .inlinerollresult,
+.sheet-rolltemplate-splittermond_damage .inlinerollresult.fullcrit,
+.sheet-rolltemplate-splittermond_damage .inlinerollresult.fullfail,
+.sheet-rolltemplate-splittermond_damage .inlinerollresult.importantroll,
+.sheet-rolltemplate-splittermond-initiative_tracker .inlinerollresult,
+.sheet-rolltemplate-splittermond-initiative_tracker .inlinerollresult.fullcrit,
+.sheet-rolltemplate-splittermond-initiative_tracker .inlinerollresult.fullfail,
+.sheet-rolltemplate-splittermond-initiative_tracker .inlinerollresult.importantroll {
     background-color: transparent;
     border: none;
 }
@@ -1222,7 +1261,9 @@ input.sheet-button-image__checkbox {
     display: inline-block;
 }
 
-.sheet-rolltemplate-splittermond_generic .sheet-d--flex, .sheet-d--flex {
+.sheet-d--flex,
+.sheet-rolltemplate-splittermond_generic .sheet-d--flex,
+.sheet-rolltemplate-splittermond_initiative .sheet-d--flex {
     display: flex;
 }
 
@@ -1250,11 +1291,15 @@ input.sheet-button-image__checkbox {
     align-items: flex-end;
 }
 
-.sheet-rolltemplate-splittermond_generic .sheet-d--flex--align-baseline, .sheet-d--flex--align-baseline {
+.sheet-d--flex--align-baseline,
+.sheet-rolltemplate-splittermond_generic .sheet-d--flex--align-baseline,
+.sheet-rolltemplate-splittermond_initiative .sheet-d--flex--align-baseline {
     align-items: baseline;
 }
 
-.sheet-rolltemplate-splittermond_generic .sheet-d--flex > *, .sheet-d--flex > * {
+.sheet-d--flex > *,
+.sheet-rolltemplate-splittermond_generic .sheet-d--flex > *,
+.sheet-rolltemplate-splittermond_initiative .sheet-d--flex > *  {
     flex: 1;
 }
 
