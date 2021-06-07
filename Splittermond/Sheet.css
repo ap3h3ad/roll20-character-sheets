@@ -109,7 +109,6 @@
     padding: 0.5rem 2rem;
     font-weight: 700;
     color: white;
-    text-align: center;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     background-color: #890c6f;
@@ -118,7 +117,6 @@
 .sheet-rolltemplate-splittermond_generic .sheet-roll-message__title,
 .sheet-rolltemplate-splittermond_initiative .sheet-roll-message__title {
     font-size: 2rem;
-    text-align: center;
     padding: 1.5rem 2rem 0;
 }
 
@@ -129,13 +127,11 @@
 .sheet-rolltemplate-splittermond_generic .sheet-roll-message__subtitle,
 .sheet-rolltemplate-splittermond_initiative .sheet-roll-message__subtitle {
     font-size: 1.2rem;
-    text-align: center;
     padding: 0 2rem;
 }
 
 .sheet-rolltemplate-splittermond_generic .sheet-roll-message__dice-group,
 .sheet-rolltemplate-splittermond_initiative .sheet-roll-message__dice-group {
-    text-align: center;
     margin: 0.7rem 0 1.5rem;
 }
 
@@ -157,14 +153,12 @@
 
 .sheet-rolltemplate-splittermond_initiative .sheet-roll-message__result-num {
     font-size: 2rem;
-    text-align: left;
     padding: 0 2rem 0 0.5rem;
 }
 
 .sheet-rolltemplate-splittermond_generic .sheet-roll-message__difficulty-num,
 .sheet-rolltemplate-splittermond_generic .sheet-roll-message__difficulty  {
     font-size: 1.4rem;
-    text-align: left;
     padding: 0 2rem 0 0.5rem
 }
 
@@ -1237,11 +1231,15 @@ input.sheet-button-image__checkbox {
     font-weight: 700 !important;
 }
 
-.sheet-text--center {
+.sheet-text--center,
+.sheet-rolltemplate-splittermond_generic .sheet-text--center,
+.sheet-rolltemplate-splittermond_initiative .sheet-text--center {
     text-align: center !important;
 }
 
-.sheet-rolltemplate-splittermond_generic .sheet-text--right, .sheet-text--right {
+.sheet-text--right,
+.sheet-rolltemplate-splittermond_generic .sheet-text--right,
+.sheet-rolltemplate-splittermond_initiative .sheet-text--right {
     text-align: right !important;
 }
 
@@ -1283,7 +1281,9 @@ input.sheet-button-image__checkbox {
     align-items: flex-start;
 }
 
-.sheet-d--flex--align-center {
+.sheet-d--flex--align-center,
+.sheet-rolltemplate-splittermond_generic .sheet-d--flex--align-center,
+.sheet-rolltemplate-splittermond_initiative .sheet-d--flex--align-center{
     align-items: center;
 }
 
